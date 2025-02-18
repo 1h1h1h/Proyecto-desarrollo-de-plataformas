@@ -1,34 +1,39 @@
-CREATE DATABASE Tienda_ropa;  
-USE Tienda; 
+CREATE DATABASE IF NOT EXISTS Tienda_ropa
+    CHARACTER SET utf8mb4 
+    COLLATE utf8mb4_spanish_ci;
+
+USE Tienda_ropa; 
 
 CREATE TABLE clientes (
-id_cliente int AUTO_INCREMENT PRIMARY KEY,
-nombre  VARCHAR(50) NOT NULL, 
-apellido VARCHAR(50) NOT NULL, 
-numero_telefono int NOT NULL, 
-correo_electronico VARCHAR (50)
-);  
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nombre  VARCHAR(50) NOT NULL, 
+    apellido1 VARCHAR(50) NOT NULL, 
+    apellido2 VARCHAR(50),
+    telefono VARCHAR(12) NOT NULL,
+    email VARCHAR (50),
+    registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+) ENGINE=InnoDB;
 
+CREATE TABLE inventario (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(25) NOT NULL
+    descripcion VARCHAR(255) NOT NULL,
+    MARCA VARCHAR (50) NOT NULL,  
+    MODELO VARCHAR(50) NOT NULL,  
+    precio decimal(10,2) NOT NULL,
+    in_stock int NOT NULL,
+); ENGINE=InnoDB;
 
-CREATE TABLE inventario(
-id_prenda int AUTO_INCREMENT PRIMARY KEY,
-descripcion_prenda VARCHAR(100) NOT NULL,
-marca VARCHAR (50) NOT NULL,  
-precio DECIMAL(10,2) NOT NULL,  
-unidades_vendias INT NOT NULL,
-unidades_stok INT NOT NULL
-); 
-
-CREATE TABLE ventas( 
-consecutivo INT AUTO_INCREMENT PRIMARY KEY,
-id_cliente INT NOT NULL,
-id_prenda INT NOT NULL,   
-cantidad INT NOT NULL,
-monto DECIMAL(10,2) NOT NULL,  
-fecha DATE NOT NULL, 
-FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente),
-FOREIGN KEY (id_prenda) REFERENCES inventario(id_prenda)
-);    
+CREATE TABLE ventas ( 
+    id int AUTO_INCREMENT PRIMARY KEY,
+    id_cliente int NOT NULL,
+    id_articulo int NOT NULL, 
+    Unidades INT NOT NULL
+    total decimal (10,2) NOT NULL,  
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cliente) REFERENCES clientes (id),
+    FOREIGN KEY (id_articulo) REFERENCES inventario (id)
+) ENGINE=InnoDB;  
 
 /* INSERCION DE DATOS */   
 
