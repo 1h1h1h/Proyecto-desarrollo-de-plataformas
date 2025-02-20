@@ -1,0 +1,2 @@
+- Estandarizar los campos de la base de datos.
+- Revisar in_stock cambiar a algo mas facil de enteder.
