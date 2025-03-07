@@ -19,16 +19,16 @@ CREATE TABLE inventario (
     nombre VARCHAR(25) NOT NULL
     descripcion VARCHAR(255) NOT NULL,
     MARCA VARCHAR (50) NOT NULL,  
-    MODELO VARCHAR(50) NOT NULL,  
+    Modelo VARCHAR(50) NOT NULL,  --mayusculas
     precio decimal(10,2) NOT NULL,
-    in_stock int NOT NULL,
+    in_stock int NOT NULL,   --cantidad
 ); ENGINE=InnoDB;
 
 CREATE TABLE ventas ( 
     id int AUTO_INCREMENT PRIMARY KEY,
     id_cliente int NOT NULL,
     id_articulo int NOT NULL, 
-    Unidades INT NOT NULL
+    Unidades INT NOT NULL           --mayuscula
     total decimal (10,2) NOT NULL,  
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_cliente) REFERENCES clientes (id),
