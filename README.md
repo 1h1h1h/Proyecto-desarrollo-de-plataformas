@@ -6,4 +6,4 @@ https://drive.google.com/file/d/1oXBcdNCqPskvvS8atKvRwHA2U7n4fxAy/view?usp=drive
 2. Jonathan Rivera
 
 ## Descripcion del proyecto
-API de plataforma de ventas del curso desarrollo con plataformas abiertas 
+API de plataforma de ventas del curso desarrollo con plataformas abiertas. Este proyecto esta elaborado con un backend en Laravel y un frontend con javascript.
