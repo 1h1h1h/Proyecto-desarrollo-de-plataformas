@@ -1,18 +1,33 @@
-<center><h1>Proyecto Desarrollo con plataformas abiertas</h1></center>
+<center><h1>Proyecto Desarrollo con <br> plataformas abiertas</h1></center>
 
-## Diagrama de base de datos
-<h3> https://drive.google.com/file/d/1oXBcdNCqPskvvS8atKvRwHA2U7n4fxAy/view?usp=drive_link</h3>
+# Descripcion del proyecto
+<p>
+    API de plataforma de ventas del curso desarrollo con plataformas abiertas. Este proyecto esta elaborado con un backend en Laravel que trabaja inicialmente con un CRUD en cada tabla en la base de datos y un frontend elaborado con javascript.
+</p>
 
 ## Integrantes del proyecto
-1. Bayron Leiva Rojas
-2. Jonathan Rivera
+Bayron Leiva Rojas <br>
+Jonathan Rivera
 
-## Descripcion del proyecto
-<p>API de plataforma de ventas del curso desarrollo con plataformas abiertas. Este proyecto esta elaborado con un backend en Laravel que trabaja inicialmente con un CRUD en cada tabla en la base de datos y un frontend elaborado con javascript.</p>
+<h2>Diagrama de base de datos</h2>
+<center><img src="./backend-laravel/img/TiendaDeRopa.jpg" alt="Ejemplo" width="400"/></center>
+
+Puedes ver con más detalle en el siguiente link:
+<h4> https://drive.google.com/file/d/1oXBcdNCqPskvvS8atKvRwHA2U7n4fxAy/view?usp=drive_link</h4>
+
 
 # Endpoints de la API
+Headers para consulta en Postman en cada endpoint:<br>
+| Key               | Value       |
+|-----------------|-----------------|
+| Accept | application/json |
+| Content-Type | application/json |
 
-url base: http://127.0.0.1:8000/api/
+
+url base: http://127.0.0.1:8000/api/ <br> <br>
+Ejemplo: <br> 
+get => http://127.0.0.1:8000/api/clientes/5 <br>
+delete => http://127.0.0.1:8000/api/invetario
 
 ## **Clientes**
 - GET /clientes - Obtener todos los clientes
@@ -48,7 +63,7 @@ body ejemplo:
 ---
 
 
-### **Inventario**
+## **Inventario**
 - GET /inventario - Obtener todos los artículos
 ---
 - GET /inventario/8 - Obtener un artículo específico con id=8
