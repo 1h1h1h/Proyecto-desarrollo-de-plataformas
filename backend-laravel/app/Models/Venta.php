@@ -8,17 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Venta extends Model
 {
     use HasFactory;
-    protected $fillable = ['id_cliente', 'id_articulo', 'unidades', 'total'];
+
+    protected $table = 'ventas';
+    
+    protected $fillable = [
+        'id_cliente',
+        'id_articulo',
+        'Unidades',
+        'total'
+    ];
+
+    protected $casts = [
+        'fecha' => 'datetime'
+    ];
 
     public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'id_cliente');
     }
 
-    public function inventario()
+    public function articulo()
     {
         return $this->belongsTo(Inventario::class, 'id_articulo');
     }
 }
-
-?>

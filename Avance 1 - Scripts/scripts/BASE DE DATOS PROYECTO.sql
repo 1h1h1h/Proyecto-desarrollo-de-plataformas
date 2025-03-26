@@ -11,24 +11,24 @@ CREATE TABLE clientes (
     apellido2 VARCHAR(50),
     telefono VARCHAR(12) NOT NULL,
     email VARCHAR (50),
-    registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
 CREATE TABLE inventario (
     id int AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(25) NOT NULL
+    nombre VARCHAR(25) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     MARCA VARCHAR (50) NOT NULL,  
     MODELO VARCHAR(50) NOT NULL,  
     precio decimal(10,2) NOT NULL,
-    in_stock int NOT NULL,
-); ENGINE=InnoDB;
+    in_stock int NOT NULL
+) ENGINE=InnoDB;
 
 CREATE TABLE ventas ( 
     id int AUTO_INCREMENT PRIMARY KEY,
     id_cliente int NOT NULL,
     id_articulo int NOT NULL, 
-    Unidades INT NOT NULL
+    Unidades INT NOT NULL,
     total decimal (10,2) NOT NULL,  
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_cliente) REFERENCES clientes (id),

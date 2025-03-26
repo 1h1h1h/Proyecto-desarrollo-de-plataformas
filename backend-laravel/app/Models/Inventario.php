@@ -8,11 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Inventario extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre', 'descripcion', 'marca', 'modelo', 'precio', 'in_stock'];
+
+    protected $table = 'inventario';
+    
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'MARCA',
+        'MODELO',
+        'precio',
+        'in_stock'
+    ];
 
     public function ventas()
     {
         return $this->hasMany(Venta::class, 'id_articulo');
     }
 }
-
