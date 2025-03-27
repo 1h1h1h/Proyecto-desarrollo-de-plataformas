@@ -95,8 +95,6 @@ body ejemplo:
         "precio":1.800,
         "in_stock": 
     }
----
-
 
 ## **Ventas**
 
@@ -111,10 +109,10 @@ body ejemplo:
 body ejemplo:
 
     {
-    "id_cliente":1,
-    "id_articulo":6,
-    "Unidades": 1,
-    "total": 2
+        "id_cliente":1,
+        "id_articulo":6,
+        "Unidades": 1,
+        "total": 2
     }
 ---
 - PUT /api/ventas/5 - Actualizar una venta con id=5
@@ -122,9 +120,9 @@ body ejemplo:
 body ejemplo:
 
     {
-    "id_cliente":1,
-    "id_articulo":6,
-    "Unidades": 1,
-    "total": 2
+        "id_cliente":1,
+        "id_articulo":6, //modifica todos los valores
+        "Unidades": 1,
+        "total": 2
     }
 ---
