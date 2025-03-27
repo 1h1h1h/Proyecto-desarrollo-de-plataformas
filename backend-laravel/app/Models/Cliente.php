@@ -18,7 +18,7 @@ class Cliente extends Model
         'telefono',
         'email'
     ];
-
+    public $timestamps = false; 
     protected $casts = [
         'registro' => 'datetime'
     ];
