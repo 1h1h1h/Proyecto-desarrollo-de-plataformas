@@ -11,7 +11,7 @@ CREATE TABLE clientes (
     apellido2 VARCHAR(50),
     telefono VARCHAR(12) NOT NULL,
     email VARCHAR (50),
-    registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
 CREATE TABLE inventario (
@@ -21,8 +21,8 @@ CREATE TABLE inventario (
     MARCA VARCHAR (50) NOT NULL,  
     Modelo VARCHAR(50) NOT NULL,  --mayusculas
     precio decimal(10,2) NOT NULL,
-    in_stock int NOT NULL,   --cantidad
-); ENGINE=InnoDB;
+    in_stock int NOT NULL  --cantidad
+) ENGINE=InnoDB;
 
 CREATE TABLE ventas ( 
     id int AUTO_INCREMENT PRIMARY KEY,
