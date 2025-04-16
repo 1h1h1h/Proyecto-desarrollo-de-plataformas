@@ -18,8 +18,9 @@ class Venta extends Model
         'total'
     ];
 
+    public $timestamps = false; 
     protected $casts = [
-        'fecha' => 'datetime'
+        'registro' => 'datetime'
     ];
 
     public function cliente()
