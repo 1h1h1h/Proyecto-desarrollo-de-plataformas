@@ -47,6 +47,8 @@ function editarArticulo(id) {
             document.getElementById("telefono").value = articulo.telefono;
             document.getElementById("email").value = articulo.email;
             document.getElementById("registro").value = articulo.registro;
+            document.getElementById("editarModal").setAttribute("data-id", id);
+
             
             // Mostrar el modal
             new bootstrap.Modal(document.getElementById('editarModal')).show();
@@ -57,6 +59,13 @@ function editarArticulo(id) {
 // Función para guardar los cambios en el artículo
 function guardarEdicion() {
     const id = document.getElementById("editarModal").getAttribute("data-id");
+
+    if (!id) {
+        console.error('ID del cliente no definido');
+        alert('Error: No se encontró el ID del cliente.');
+        return;
+    }
+
     const nombre = document.getElementById("nombre").value;
     const apellido1 = document.getElementById("apellido1").value;
     const apellido2 = document.getElementById("apellido2").value;
@@ -64,10 +73,8 @@ function guardarEdicion() {
     const email = document.getElementById("email").value;
     const registro = document.getElementById("registro").value;
 
-    // Crear el objeto con los datos modificados
     const articulo = { nombre, apellido1, apellido2, telefono, email, registro };
 
-    // Enviar los datos a la API para guardar los cambios
     fetch(`http://127.0.0.1:8000/api/clientes/${id}`, {
         method: 'PUT',
         headers: {
@@ -75,15 +82,24 @@ function guardarEdicion() {
         },
         body: JSON.stringify(articulo)
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Artículo actualizado:', data);
-        cargarArticulos(); // Recargar los artículos en la tabla
-        const modal = bootstrap.Modal.getInstance(document.getElementById('editarModal'));
-        modal.hide(); // Cerrar el modal
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        return response.json();
     })
-    .catch(error => console.error('Error al actualizar el artículo:', error));
+    .then(data => {
+        console.log('Cliente actualizado:', data);
+        cargarArticulos();
+        const modal = bootstrap.Modal.getInstance(document.getElementById('editarModal'));
+        modal.hide();
+    })
+    .catch(error => {
+        console.error('Error al actualizar el cliente:', error);
+        alert('No se pudo actualizar el cliente. Verifica que el cliente exista.');
+    });
 }
+
 
 // Cargar los artículos cuando la página se cargue
 window.onload = cargarArticulos;
